@@ -1,24 +1,32 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
+using System.Linq;
 
 class Program
 {
-    static void Main(string[] args){
-        Fraction fraction = new Fraction();
-        Fraction fraction1 = new Fraction(5);
-        Fraction fraction2 = new Fraction(3, 4);
-        Fraction fraction3 = new Fraction(1, 3);
-        
-        Console.WriteLine(fraction.GetFractionString());
-        Console.WriteLine(fraction.GetDecimalValue());
-        
-        Console.WriteLine(fraction1.GetFractionString());
-        Console.WriteLine(fraction1.GetDecimalValue());
-        
-        Console.WriteLine(fraction2.GetFractionString());
-        Console.WriteLine(fraction2.GetDecimalValue());
-        
-        Console.WriteLine(fraction3.GetFractionString());
-        Console.WriteLine(fraction3.GetDecimalValue());
+    static void Main()
+    {
+        Console.WriteLine("Scripture Hiding Program!");
+
+        // gets the scripture verse that you want to memerioze.
+        ScriptureReference reference = new ScriptureReference("Deuteronomy 31:6");
+        Scripture scripture = new Scripture(reference, "I have said these things to you, that in me you may have peace. In the world you will have tribulation. But take heart; I have overcome the world.");
+
+        // this will run until all the words are hidden it also gets user input for entering or quiting
+        while (!scripture.AllWordsHidden)
+        {
+            Console.Clear();
+            scripture.Display();
+            Console.WriteLine("\nPress Enter to continue or type 'quit' to exit.");
+
+            string userInput = Console.ReadLine().ToLower();
+
+            if (userInput == "quit")
+                break;
+
+            scripture.RemoveWords();
+        }
+
+        Console.WriteLine("Thank you for using the Scripture Hiding Program! Goodbye!");
     }
 }
