@@ -1,35 +1,31 @@
-using System;
-using System.Globalization;
-using System.Security.Cryptography.X509Certificates;
-
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        while (true){
-            Menu menu = new Menu();
-            string choice = menu.Display();
-            if (choice == "1"){
-                Breathing breathing = new Breathing("Breathing Activity", "This activity will do somthing");
-            } else if (choice == "2") {
-                Console.WriteLine("you chose 2");
-            } else if (choice == "3") {
-                Console.WriteLine("you chose 3");
-            } else if (choice == "4") {
-                int num = 0;
-                Console.Write("Exiting");
-                while (num < 3){
-                    Console.Write(".");
-                    Thread.Sleep(1000);
-                    num++;
-                }
-                Thread.Sleep(500);
-                Console.Clear();
-                break;
-            } else {
-                Console.WriteLine("error");
-                Thread.Sleep(1000);
-                menu.Display();
+        while (true)
+        {
+            int choice = MenuMenu.DisplayMenu();
+
+            switch (choice)
+            {
+                case 1:
+                    MindfulnessActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.StartActivity();
+                    break;
+                case 2:
+                    MindfulnessActivity reflectionActivity = new ReflectionActivity();
+                    reflectionActivity.StartActivity();
+                    break;
+                case 3:
+                    MindfulnessActivity listingActivity = new ListingActivity();
+                    listingActivity.StartActivity();
+                    break;
+                case 4:
+                    Console.WriteLine("Exiting the Mindfulness. Goodbye!");
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please choose a number from 1 to 4.");
+                    break;
             }
         }
     }

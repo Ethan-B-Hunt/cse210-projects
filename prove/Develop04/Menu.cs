@@ -1,22 +1,23 @@
-public class Menu {
-    public string Display(){
+class MenuMenu
+{
+    public static int DisplayMenu()
+    {
         Console.Clear();
-        Console.WriteLine("Menu Options:");
-        Console.WriteLine("1. Start breathing activity");
-        Console.WriteLine("2. Start reflecting activity");
-        Console.WriteLine("3. Start listing activity");
-        Console.WriteLine("4. Quit");
-        Console.WriteLine("Select a choice from the menu: ");
-        string userInput = Console.ReadLine();
-        if (check(userInput)){
-            return userInput;
-        } else {
-            Console.WriteLine("Invalid input. Please enter a valid option.");
-            Thread.Sleep(500);
-            return Display();
+        Console.WriteLine("\nMindfulness App Menu:");
+        Console.WriteLine("1. Breathing Activity");
+        Console.WriteLine("2. Reflection Activity");
+        Console.WriteLine("3. Listing Activity");
+        Console.WriteLine("4. Exit");
+
+        Console.Write("Choose an activity (1-4): ");
+        if (int.TryParse(Console.ReadLine(), out int choice))
+        {
+            return choice;
         }
-    }
-    public bool check(string inputUser) {
-        return (inputUser == "1" || inputUser == "2" || inputUser == "3" || inputUser == "4");
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a number.");
+            return DisplayMenu();
+        }
     }
 }
