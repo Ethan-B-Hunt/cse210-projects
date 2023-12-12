@@ -2,6 +2,7 @@ class BreathingActivity : MindfulnessActivity
 {
     public BreathingActivity() : base("Breathing Activity", "Relax by pacing your breathing.")
     {
+        
     }
 
     protected override void PerformActivity()
