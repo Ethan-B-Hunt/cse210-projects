@@ -1,24 +1,24 @@
 class Product
 {
-    private string name;
-    private int productId;
-    private decimal pricePerUnit;
-    private int quantity;
+    private string _name;
+    private int _productId;
+    private decimal _pricePerUnit;
+    private int _quantity;
 
     public Product(string name, int productId, decimal pricePerUnit, int quantity)
     {
-        this.name = name;
-        this.productId = productId;
-        this.pricePerUnit = pricePerUnit;
-        this.quantity = quantity;
+        _name = name;
+        _productId = productId;
+        _pricePerUnit = pricePerUnit;
+        _quantity = quantity;
     }
 
     public decimal GetTotalCost()
     {
-        return pricePerUnit * quantity;
+        return _pricePerUnit * _quantity;
     }
 
-    public string Name { get { return name; } }
-    public int ProductId { get { return productId; } }
+    public string Name { get { return _name; } }
+    public int ProductId { get { return _productId; } }
 }
 

@@ -1,23 +1,23 @@
 class Event
 {
-    private string title;
-    private string description;
-    private string date;
-    private string time;
-    private Address address;
+    private string _title;
+    private string _description;
+    private string _date;
+    private string _time;
+    private Address _address;
 
     public Event(string title, string description, string date, string time, Address address)
     {
-        this.title = title;
-        this.description = description;
-        this.date = date;
-        this.time = time;
-        this.address = address;
+        _title = title;
+        _description = description;
+        _date = date;
+        _time = time;
+        _address = address;
     }
 
     public virtual string StandardDetails()
     {
-        return $"Title: {title}\nDescription: {description}\nDate: {date}\nTime: {time}\nAddress: {address}";
+        return $"Title: {_title}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\nAddress: {_address}";
     }
 
     public virtual string FullDetails()
@@ -27,7 +27,7 @@ class Event
 
     public virtual string ShortDescription()
     {
-        return $"Type: {GetEventType()}\nTitle: {title}\nDate: {date}";
+        return $"Type: {GetEventType()}\nTitle: {_title}\nDate: {_date}";
     }
 
     protected virtual string GetEventType()

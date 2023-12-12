@@ -1,20 +1,20 @@
 class Address
 {
-    private string street;
-    private string city;
-    private string state;
-    private string zipCode;
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _zipCode;
 
     public Address(string street, string city, string state, string zipCode)
     {
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.zipCode = zipCode;
+        _street = street;
+        _city = city;
+        _state = state;
+        _zipCode = zipCode;
     }
 
     public override string ToString()
     {
-        return $"{street}, {city}, {state} {zipCode}";
+        return $"{_street}, {_city}, {_state} {_zipCode}";
     }
 }

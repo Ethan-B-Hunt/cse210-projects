@@ -1,16 +1,16 @@
 class Reception : Event
 {
-    private string rsvpEmail;
+    private string _rsvpEmail;
 
     public Reception(string title, string description, string date, string time, Address address, string rsvpEmail)
         : base(title, description, date, time, address)
     {
-        this.rsvpEmail = rsvpEmail;
+        _rsvpEmail = rsvpEmail;
     }
 
     public override string FullDetails()
     {
-        return $"{base.FullDetails()}\nRSVP Email: {rsvpEmail}";
+        return $"{base.FullDetails()}\nRSVP Email: {_rsvpEmail}";
     }
 
     protected override string GetEventType()
